@@ -10,7 +10,11 @@ var db = mongoose.connection;
 
 db.on('error', console.error);
 
-mongoose.connect('mongodb://' + config.mongodb.host + ':' + config.mongodb.port + '/' + config.mongodb.database);
+if(config.mongodb.uri){
+    mongoose.connect(uri);
+}else{
+    mongoose.connect('mongodb://' + config.mongodb.host + ':' + config.mongodb.port + '/' + config.mongodb.database);
+}
 
 var cardSchema = new Schema({
     cardId: Number,
