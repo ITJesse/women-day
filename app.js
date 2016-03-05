@@ -9,6 +9,7 @@ var lessMiddleware = require('less-middleware');
 
 var getCard = require('./routes/get_card');
 var insertCard = require('./routes/insert_card');
+var index = require('./routes/index');
 
 var app = express();
 
@@ -36,6 +37,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/', index);
 
 app.use('/test', function(req, res) {
     res.render('test');

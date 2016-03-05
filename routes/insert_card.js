@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var card = require('../modules/mongodb').card;
+var card = require('../configs/mongodb').card;
 
 /* GET home page. */
 router.post('/InsertCard', function(req, res, next) {
