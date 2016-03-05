@@ -11,7 +11,7 @@ var db = mongoose.connection;
 db.on('error', console.error);
 
 if(config.mongodb.uri){
-    mongoose.connect(uri);
+    mongoose.connect(config.mongodb.uri);
 }else{
     mongoose.connect('mongodb://' + config.mongodb.host + ':' + config.mongodb.port + '/' + config.mongodb.database);
 }
