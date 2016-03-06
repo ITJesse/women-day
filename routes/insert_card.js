@@ -33,7 +33,7 @@ router.post('/InsertCard', function(req, res, next) {
                 }
                 return res.send(result);
             }else{
-                console.log(data);
+                // console.log(data);
                 console.log("Insert new card");
                 var result = {
                     err: null,

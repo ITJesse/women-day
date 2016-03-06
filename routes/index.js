@@ -73,7 +73,7 @@ router.get('/', function(req, res, next) {
             console.log(data);
             res.render('index', {
                 title: '您收到了一份节日祝福',
-                count: results.count + 1024,
+                count: results.count * 2 + 1024,
                 list: data
             });
         }

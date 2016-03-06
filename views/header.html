@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="/css/onepage-scroll.css" />
-    <link rel="stylesheet" href="./css/main.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="./css/main.css?ver=1" media="screen" title="no title" charset="utf-8">
     <link rel="prefetch" href="/images/flower_1.png" />
     <link rel="prefetch" href="/images/flower_2.png" />
     <link rel="prefetch" href="/images/flower_3.png" />
@@ -21,18 +21,18 @@
     <title>{{title}}</title>
     <script type="text/javascript">
         /*
-                    # 按照宽高比例设定html字体, width=device-width initial-scale=1版
-                    # @pargam win 窗口window对象
-                    # @pargam option{
-                      designWidth: 设计稿宽度，必须
-                      designHeight: 设计稿高度，不传的话则比例按照宽度来计算，可选
-                      designFontSize: 设计稿宽高下用于计算的字体大小，默认20，可选
-                      callback: 字体计算之后的回调函数，可选
-                    }
-                    # return Boolean;
-                    # xiaoweili@tencent.com
-                    # ps:请尽量第一时间运行此js计算字体
-                */
+                            # 按照宽高比例设定html字体, width=device-width initial-scale=1版
+                            # @pargam win 窗口window对象
+                            # @pargam option{
+                              designWidth: 设计稿宽度，必须
+                              designHeight: 设计稿高度，不传的话则比例按照宽度来计算，可选
+                              designFontSize: 设计稿宽高下用于计算的字体大小，默认20，可选
+                              callback: 字体计算之后的回调函数，可选
+                            }
+                            # return Boolean;
+                            # xiaoweili@tencent.com
+                            # ps:请尽量第一时间运行此js计算字体
+                        */
         ! function(win, option) {
             var count = 0,
                 designWidth = option.designWidth,
@@ -84,8 +84,85 @@
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script src="/js/jquery-1.11.1.min.js"></script>
     <script src="/js/jquery.onepage-scroll.js"></script>
-    <script src="/js/jquery.mobile.custom.min.js"></script>
-    <script src="/js/common.js"></script>
+    <script>
+        $(document).on('ready', function() {
+            $('#bgmusic_toggle').on('click', function() {
+                alert('test');
+                if ($(this).hasClass('music-toggle_on')) {
+                    $(this).removeClass('music-toggle_on');
+                    $(this).addClass('music-toggle_off');
+                    document.getElementById('bgmusic').pause();
+                } else {
+                    $(this).removeClass('music-toggle_off');
+                    $(this).addClass('music-toggle_on');
+                    document.getElementById('bgmusic').play();
+                }
+            });
+            document.getElementById('bgmusic').play();
+            //必须在微信Weixin JSAPI的WeixinJSBridgeReady才能生效
+            document.addEventListener("WeixinJSBridgeReady", function() {
+                document.getElementById('bgmusic').play();
+            }, false);
+        });
+
+        wx.ready(function() {
+            wx.hideMenuItems({
+                menuList: [
+                        // "menuItem:share:appMessage",
+                        // "menuItem:share:timeline",
+                        "menuItem:share:qq",
+                        "menuItem:share:weiboApp",
+                        // "menuItem:favorite",
+                        "menuItem:share:facebook",
+                        "menuItem:editTag",
+                        "menuItem:delete",
+                        "menuItem:copyUrl",
+                        "menuItem:originPage",
+                        "menuItem:readMode",
+                        "menuItem:openWithQQBrowser",
+                        "menuItem:openWithSafari",
+                        "menuItem:share:email",
+                        "menuItem:share:brand"
+                    ] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
+            });
+            wx.showMenuItems({
+                menuList: [
+                        "menuItem:share:appMessage",
+                        "menuItem:share:timeline",
+                        // "menuItem:share:qq",
+                        // "menuItem:share:weiboApp",
+                        "menuItem:favorite"
+                        // "menuItem:share:facebook",
+                        // "menuItem:editTag",
+                        // "menuItem:delete",
+                        // "menuItem:copyUrl",
+                        // "menuItem:originPage",
+                        // "menuItem:readMode",
+                        // "menuItem:openWithQQBrowser",
+                        // "menuItem:openWithSafari",
+                        // "menuItem:share:email",
+                        // "menuItem:share:brand"
+                    ] // 要显示的菜单项，所有menu项见附录3
+            });
+            wx.onMenuShareTimeline({
+                title: '您收到了一份节日祝福',
+                link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx81d075add9f24883&redirect_uri=http%3a%2f%2fwww.xu1s.com&response_type=code&scope=snsapi_userinfo&state=ENTER#wechat_redirect',
+                imgUrl: "http://7xiqx7.com1.z0.glb.clouddn.com/head.jpg",
+                success: function() {},
+                cancel: function() {}
+            });
+            wx.onMenuShareAppMessage({
+                title: '您收到了一份节日祝福',
+                desc: "湖北省工会给您发送了一份妇女节的祝福",
+                link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx81d075add9f24883&redirect_uri=http%3a%2f%2fwww.xu1s.com&response_type=code&scope=snsapi_userinfo&state=ENTER#wechat_redirect',
+                imgUrl: "http://7xiqx7.com1.z0.glb.clouddn.com/head.jpg",
+                type: 'link',
+                dataUrl: '',
+                success: function() {},
+                cancel: function() {}
+            });
+        });
+    </script>
 </head>
 
 <body>

@@ -35,7 +35,7 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
 app.use(lessMiddleware(path.join(__dirname, 'less'), {
-    debug: true,
+    debug: false,
     dest: path.join(__dirname, 'public'),
     preprocess: {
         path: function(pathname, req) {
