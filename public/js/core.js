@@ -88,7 +88,7 @@ $(document).ready(function() {
             toContent = flowerContent;
         }
         $('#to_name_prv').text(toName);
-        $('#to_content_prv').text(toContent).append(fromName + '</br>');
+        $('#to_content_prv').text(toContent).append('</br>' + fromName);
         $('#next_page').click();
     })
 });
