@@ -153,7 +153,7 @@ $(document).ready(function() {
                 wx.onMenuShareTimeline({
                     title: fromName + '给您发送了一份祝福',
                     link: 'http://www.xu1s.com/show_card?cardId=' + data.cardId,
-                    imgUrl: fromImg,
+                    imgUrl: fromImg ? fromImg : "http://7xiqx7.com1.z0.glb.clouddn.com/head.jpg",
                     success: function() {},
                     cancel: function() {}
                 });
@@ -161,7 +161,7 @@ $(document).ready(function() {
                     title: fromName + '给您发送了一份祝福',
                     desc: "您收到了一份妇女节的祝福",
                     link: 'http://www.xu1s.com/show_card?cardId=' + data.cardId,
-                    imgUrl: fromImg,
+                    imgUrl: fromImg ? fromImg : "http://7xiqx7.com1.z0.glb.clouddn.com/head.jpg",
                     type: 'link',
                     dataUrl: '',
                     success: function() {},
