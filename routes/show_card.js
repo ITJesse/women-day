@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
                 }
                 return res.send(result);
             } else {
-                console.log(row);
+                // console.log(row);
                 console.log("Get card info by id: " + cardId);
                 return res.render('show_card', {
                     title: row.from + "送给你一份祝福",
