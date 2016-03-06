@@ -70,7 +70,7 @@ router.get('/', function(req, res, next) {
                     from: results.posts[i].from
                 })
             }
-            console.log(data);
+            // console.log(data);
             res.render('index', {
                 title: '您收到了一份节日祝福',
                 count: results.count * 2 + 1024,

@@ -44,6 +44,7 @@ $(document).ready(function() {
         animationTime: 800,
         keyboard: false,
         loop: false,
+        pagination: false,
         afterMove: function() {
             window.scrollTo(0, 0);
         }
