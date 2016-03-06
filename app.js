@@ -18,7 +18,7 @@ var app = express();
 
 // create a write stream (in append mode)
 if(process.env.filesyspath){
-    var accessLogFileDir = process.env.filesyspath;
+    var accessLogFileDir = process.env.accesslogPath;
 }else{
     var accessLogFileDir = __dirname + '/access.log';
 }
