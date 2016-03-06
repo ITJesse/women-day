@@ -129,6 +129,10 @@ $(document).ready(function() {
         if (toContent.length < 1) {
             toContent = flowerContent;
         }
+        if (toContent.length > 30) {
+            alert('祝福语只能写30字，太多明信片写不下哦！');
+            return;
+        }
         $('#postcard_prv').addClass('send-postcard_img' + flowerId);
         $('#to_name_prv').text(toName);
         if (!fromName) fromName = "某某";
