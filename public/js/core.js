@@ -108,7 +108,7 @@ $(document).ready(function() {
                 break;
             case 6:
                 flowerName = "郁金香";
-                flowerContent = "神秘高雅的郁金香，蕴含了对你永恒的祝愿，为荣誉而作，为家人而作的你，是我们最美的半边天。";
+                flowerContent = "高雅的郁金香是对你永恒的祝愿，努力奋斗的你是社会的半边天！";
                 break;
             default:
                 flowerName = "百合";
