@@ -18,6 +18,7 @@ body {
     top: 3rem;
     width: 3rem;
     height: 3rem;
+    z-index: 1000;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     &.music-toggle_on {
@@ -95,6 +96,7 @@ body {
             font-size: 1.6rem;
             width: 530 / 20rem;
             height: 265 / 20rem;
+            line-height: 1.1em;
             p {
                 text-indent: 3.2rem;
             }
@@ -110,7 +112,10 @@ body {
             color: #657680;
             padding: 70 / 20rem 0.8rem;
             text-align: center;
-            span {
+            .text {
+                color: #ff9000;
+            }
+            .count {
                 display: block;
                 font-weight: 700;
                 color: #c81b8d;
@@ -372,11 +377,11 @@ body {
         position: absolute;
         -webkit-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
-        width: 3rem;
-        height: 2rem;
+        width: 6rem;
+        height: 3rem;
         background: url("../images/swipe.png") no-repeat;
         background-size: contain;
-        bottom: 15%;
+        bottom: 5%;
         left: 50%;
     }
 }

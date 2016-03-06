@@ -21,18 +21,18 @@
     <title>{{title}}</title>
     <script type="text/javascript">
         /*
-            # 按照宽高比例设定html字体, width=device-width initial-scale=1版
-            # @pargam win 窗口window对象
-            # @pargam option{
-              designWidth: 设计稿宽度，必须
-              designHeight: 设计稿高度，不传的话则比例按照宽度来计算，可选
-              designFontSize: 设计稿宽高下用于计算的字体大小，默认20，可选
-              callback: 字体计算之后的回调函数，可选
-            }
-            # return Boolean;
-            # xiaoweili@tencent.com
-            # ps:请尽量第一时间运行此js计算字体
-        */
+                    # 按照宽高比例设定html字体, width=device-width initial-scale=1版
+                    # @pargam win 窗口window对象
+                    # @pargam option{
+                      designWidth: 设计稿宽度，必须
+                      designHeight: 设计稿高度，不传的话则比例按照宽度来计算，可选
+                      designFontSize: 设计稿宽高下用于计算的字体大小，默认20，可选
+                      callback: 字体计算之后的回调函数，可选
+                    }
+                    # return Boolean;
+                    # xiaoweili@tencent.com
+                    # ps:请尽量第一时间运行此js计算字体
+                */
         ! function(win, option) {
             var count = 0,
                 designWidth = option.designWidth,
@@ -85,6 +85,10 @@
     <script src="/js/jquery-1.11.1.min.js"></script>
     <script src="/js/jquery.onepage-scroll.js"></script>
     <script src="/js/jquery.mobile.custom.min.js"></script>
+    <script src="/js/common.js"></script>
 </head>
 
 <body>
+    <audio autoplay loop id="bgmusic">
+        <source src="http://7xiqx7.com1.z0.glb.clouddn.com/bgmusic.mp3?ver=1" type="audio/mpeg">
+    </audio>
