@@ -258,7 +258,7 @@
             if (settings.pagination == true) $(".onepage-pagination li a" + "[data-index='1']").addClass("active");
         }
 
-        if (settings.pagination == true) {
+        //if (settings.pagination == true) {
             $(".onepage-pagination li a").click(function() {
                 var page_index = $(this).data("index");
                 el.moveTo(page_index);
@@ -267,7 +267,7 @@
                 var page_index = $(this).data("index");
                 el.moveTo(page_index);
             });
-        }
+        //}
 
 
         if (settings.responsiveFallback != false) {
