@@ -1,3 +1,12 @@
+$.urlParam = function(name) {
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results == null) {
+        return null;
+    } else {
+        return results[1] || 0;
+    }
+}
+
 $(document).ready(function() {
     var flowerId,
         flowerName,
@@ -5,6 +14,25 @@ $(document).ready(function() {
         fromName,
         toName,
         toContent;
+
+    var code = $.urlParam('code');
+    if (!code) {
+        var url = encodeURIComponent(window.location.href);
+        // alert(url);
+        window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx81d075add9f24883&redirect_uri=" + url + "&response_type=code&scope=snsapi_userinfo&state=ENTER#wechat_redirect";
+    } else {
+        $.ajax({
+            url: "/API/GetUserInfo",
+            type: "get",
+            dataType: "json",
+            data: {
+                code: code
+            },
+            success: function(data) {
+                console.log(data)
+            }
+        })
+    }
 
     $('#pages').onepage_scroll({
         sectionContainer: '.content',
@@ -30,6 +58,7 @@ $(document).ready(function() {
     $('.left').on('click', function() {
         flowerId = $('.send-flower_img').data('flowerid');
         $('.send-flower_img').removeClass('send-flower_img_' + flowerId);
+        $('#postcard_prv').removeClass('send-postcard_img' + flowerId);
         flowerId = flowerId - 1 == 0 ? 6 : flowerId - 1;
         $('.send-flower_img').data('flowerid', flowerId);
         $('.send-flower_img').addClass('send-flower_img_' + flowerId);
@@ -37,6 +66,7 @@ $(document).ready(function() {
     $('.right').on('click', function() {
         flowerId = $('.send-flower_img').data('flowerid');
         $('.send-flower_img').removeClass('send-flower_img_' + flowerId);
+        $('#postcard_prv').removeClass('send-postcard_img' + flowerId);
         flowerId = flowerId + 1 > 6 ? 1 : flowerId + 1;
         $('.send-flower_img').data('flowerid', flowerId);
         $('.send-flower_img').addClass('send-flower_img_' + flowerId);
@@ -76,19 +106,50 @@ $(document).ready(function() {
         $('#flower_name').text(flowerName);
         $('#flower_content').text(flowerContent);
     });
-    $('#make_prv').on('click', function(){
-        console.log('test');
+    $('#make_prv').on('click', function() {
+        flowerId = $('.send-flower_img').data('flowerid');
         toName = $('#to_name').val();
         toContent = $('#flower_content').val();
-        if(toName.length < 1){
+        if (toName.length < 1) {
             alert('请输入她的名字哦！');
             return;
         }
-        if(toContent.length < 1){
+        if (toContent.length < 1) {
             toContent = flowerContent;
         }
+        $('#postcard_prv').addClass('send-postcard_img' + flowerId);
         $('#to_name_prv').text(toName);
+        if (!fromName) fromName = "某某";
         $('#to_content_prv').text(toContent).append('</br>' + fromName);
         $('#next_page').click();
-    })
+    });
+    $('.send-submit').on('click', function() {
+        $('[class^=share]').removeClass('share_off');
+        $.ajax({
+            url: "/API/InsertCard",
+            type: "post",
+            dataType: "json",
+            success: function(data){
+                wx.ready(function() {
+                    wx.onMenuShareTimeline({
+                        title: fromName + '给您发送了一份祝福',
+                        link: 'http://www.xu1s.com/GetCard?cardId=' + cardId,
+                        imgUrl: 'http://www.xu1s.com/headimg/' + openId + '.png',
+                        success: function() {},
+                        cancel: function() {}
+                    });
+                    wx.onMenuShareAppMessage({
+                        title: fromName + '给您发送了一份祝福',
+                        desc: "您收到了一份妇女节的祝福",
+                        link: 'http://www.xu1s.com/GetCard?cardId=' + cardId,
+                        imgUrl: 'http://www.xu1s.com/headimg/' + openId + '.png',
+                        type: 'link',
+                        dataUrl: '',
+                        success: function() {},
+                        cancel: function() {}
+                    });
+                });
+            }
+        });
+    });
 });

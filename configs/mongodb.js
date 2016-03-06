@@ -28,4 +28,14 @@ var cardSchema = new Schema({
     }
 });
 
+var wechatSchema = new Schema({
+    type: String,
+    content: String,
+    addTime: {
+        type: Date,
+        default: Date.now
+    }
+});
+
 exports.card = mongoose.model('Card', cardSchema);
+exports.wechat = mongoose.model('Wechat', wechatSchema);
