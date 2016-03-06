@@ -6,7 +6,7 @@
     <div class="content" data-id="0">
         <div class="woman"></div>
         <div class="text-container container_style1">
-            <p>“妇女是武职文明和精神文明的创造者，是推动社 会发展和进步的重要力量。没有妇女，就没有人类，就没有社会。”
+            <p>“妇女是物质文明和精神文明的创造者，是推动社 会发展和进步的重要力量。没有妇女，就没有人类，就没有社会。”
             </p>
             <p>——习近平总书记谈妇女</p>
         </div>
@@ -39,32 +39,33 @@
     <div class="content" data-id="3">
         <div class="text-container container_style4">
             祝愿
-            <input name="name" type="text" placeholder="(她的名字)">：
+            <input name="name" type="text" id="to_name" maxlength=5 placeholder="(她的名字)">：
         </div>
 
         <div class="send-flower">
             <div class="left"></div>
-            <div class="send-flower_img"></div>
+            <div class="send-flower_img send-flower_img_1" data-flowerid=1></div>
             <div class="right"></div>
         </div>
 
         <div class="text-container container_style5">
-            <span>插花：<br /></span>
-            <textarea name="flower" rows="8" cols="40">99朵现在就爱你99分，剩一分明天再爱你。 爱你爱你
+            <span id="flower_name">百合：<br /></span>
+            <textarea name="flower" rows="8" cols="40" id="flower_content">简单大方的百合，饱含对你最美好的祝福，愿心想事成，阖家欢乐。
             </textarea>
+            <span class="info">（点击可修改花语）</span>
         </div>
-        <a href="#5" data-index="5" class="btn send-generate"></a>
+        <div class="send-generate" id="make_prv"></div>
+        <a href="#5" data-index="5" id="next_page" class="btn" style="display:none;"></a>
     </div>
 
 
     <div class="content" data-id="4">
         <div class="send-to-text">
-            祝愿：<span></span>
+            祝愿：<span id="to_name_prv"></span>
         </div>
         <div class="send-postcard">
-            <p class="send-postcard-text">
-                99朵现在就爱你99分，剩一分明天再爱你。
-                <br /> 插花插花
+            <p class="send-postcard-text" id="to_content_prv">
+
             </p>
         </div>
         <div class="send-submit"></div>
