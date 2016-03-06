@@ -17,7 +17,6 @@ if(config.mongodb.uri){
 }
 
 var cardSchema = new Schema({
-    cardId: Schema.Types.ObjectId,
     from: String,
     to: String,
     flowerId: Number,

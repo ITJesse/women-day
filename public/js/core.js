@@ -52,11 +52,18 @@ $(document).ready(function() {
     $('textarea').focus(function() {
         $(this).parent().addClass('input_mode');
     });
+    $('textarea').on('click', function() {
+        $(this).parent().addClass('input_mode');
+    });
     $('textarea').blur(function() {
         $(this).parent().removeClass('input_mode');
     });
+    var viewHeight = $(window).height();
     $(window).on('resize', function() {
-        $('.text-container').removeClass('input_mode');
+        if(viewHeight < $(window).height()){
+            $('.text-container').removeClass('input_mode');
+        }
+        viewHeight = $(window).height();
     });
 
     $('.left').on('click', function() {
@@ -143,24 +150,22 @@ $(document).ready(function() {
                 if(data.err){
                     return alert("发送祝福的人数过多，请稍等片刻～");
                 }
-                wx.ready(function() {
-                    wx.onMenuShareTimeline({
-                        title: fromName + '给您发送了一份祝福',
-                        link: 'http://www.xu1s.com/show_card?cardId=' + cardId,
-                        imgUrl: fromImg,
-                        success: function() {},
-                        cancel: function() {}
-                    });
-                    wx.onMenuShareAppMessage({
-                        title: fromName + '给您发送了一份祝福',
-                        desc: "您收到了一份妇女节的祝福",
-                        link: 'http://www.xu1s.com/show_card?cardId=' + cardId,
-                        imgUrl: fromImg,
-                        type: 'link',
-                        dataUrl: '',
-                        success: function() {},
-                        cancel: function() {}
-                    });
+                wx.onMenuShareTimeline({
+                    title: fromName + '给您发送了一份祝福',
+                    link: 'http://www.xu1s.com/show_card?cardId=' + data.cardId,
+                    imgUrl: fromImg,
+                    success: function() {},
+                    cancel: function() {}
+                });
+                wx.onMenuShareAppMessage({
+                    title: fromName + '给您发送了一份祝福',
+                    desc: "您收到了一份妇女节的祝福",
+                    link: 'http://www.xu1s.com/show_card?cardId=' + data.cardId,
+                    imgUrl: fromImg,
+                    type: 'link',
+                    dataUrl: '',
+                    success: function() {},
+                    cancel: function() {}
                 });
             }
         });

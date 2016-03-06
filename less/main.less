@@ -34,8 +34,6 @@ body {
 }
 .content {
     position: absolute;
-    // -webkit-transform: translateX(-50%);
-    // transform: translateX(-50%);
     top: 100%;
     left: 50%;
     width: 32rem;
@@ -46,6 +44,12 @@ body {
     &.active {
         top: 0;
         display: block;
+    }
+    &.content_on {
+        top: 0;
+        display: block;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
     }
     &.content_off {
         top: -100%;
@@ -203,7 +207,7 @@ body {
                 width: 100%;
                 height: 80%;
             }
-            .info{
+            .info {
                 position: relative;
                 display: block;
                 font-size: 24 / 20rem;
@@ -340,27 +344,27 @@ body {
             left: 320 / 20rem;
         }
     }
-    .send-postcard_img1{
+    .send-postcard_img1 {
         background: url("../images/postcard_1.png") no-repeat;
         background-size: contain;
     }
-    .send-postcard_img2{
+    .send-postcard_img2 {
         background: url("../images/postcard_2.png") no-repeat;
         background-size: contain;
     }
-    .send-postcard_img3{
+    .send-postcard_img3 {
         background: url("../images/postcard_3.png") no-repeat;
         background-size: contain;
     }
-    .send-postcard_img4{
+    .send-postcard_img4 {
         background: url("../images/postcard_4.png") no-repeat;
         background-size: contain;
     }
-    .send-postcard_img5{
+    .send-postcard_img5 {
         background: url("../images/postcard_5.png") no-repeat;
         background-size: contain;
     }
-    .send-postcard_img6{
+    .send-postcard_img6 {
         background: url("../images/postcard_6.png") no-repeat;
         background-size: contain;
     }

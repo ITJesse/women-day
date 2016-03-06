@@ -13,6 +13,7 @@ var insertCard = require('./routes/insert_card');
 var index = require('./routes/index');
 var wechat = require('./routes/wechat');
 var getUserInfo = require('./routes/get_userinfo.js');
+var showCard = require('./routes/show_card.js');
 
 var app = express();
 
@@ -63,6 +64,7 @@ app.use('/API', insertCard);
 app.use('/API', getUserInfo);
 
 app.use('/wechat', wechat);
+app.use('/show_card', showCard);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
