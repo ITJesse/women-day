@@ -21,7 +21,7 @@ router.post('/InsertCard', function(req, res, next) {
         var newCard = new card({
             from: from_,
             to: req.body.to,
-            flowerid: req.body.flowerId,
+            flowerId: req.body.flowerId,
             content: req.body.content
         });
 

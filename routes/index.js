@@ -37,10 +37,44 @@ router.get('/', function(req, res, next) {
             }
             return res.send(result);
         } else {
+            var data = [];
+            for(var i in results.posts){
+                var flowerName;
+                switch (results.posts[i].flowerId) {
+                    case 1:
+                        flowerName = "百合";
+                        break;
+                    case 2:
+                        flowerName = "康乃馨";
+                        break;
+                    case 3:
+                        flowerName = "满天星";
+                        break;
+                    case 4:
+                        flowerName = "玫瑰"
+                        break;
+                    case 5:
+                        flowerName = "牡丹";
+                        break;
+                    case 6:
+                        flowerName = "郁金香";
+                        break;
+                    default:
+                        flowerName = "百合";
+                        break;
+                }
+                data.push({
+                    content: results.posts[i].content,
+                    flowerName: flowerName,
+                    to: results.posts[i].to,
+                    from: results.posts[i].from
+                })
+            }
+            console.log(data);
             res.render('index', {
                 title: '您收到了一份节日祝福',
                 count: results.count + 1024,
-                list: results.posts
+                list: data
             });
         }
     });

@@ -17,12 +17,14 @@ var getUserInfo = require('./routes/get_userinfo.js');
 var app = express();
 
 // create a write stream (in append mode)
-if(process.env.filesyspath){
+if (process.env.filesyspath) {
     var accessLogFileDir = process.env.accesslog_path;
-}else{
+} else {
     var accessLogFileDir = __dirname + '/access.log';
 }
-var accessLogStream = fs.createWriteStream(accessLogFileDir, {flags: 'a'});
+var accessLogStream = fs.createWriteStream(accessLogFileDir, {
+    flags: 'a'
+});
 
 
 template.config('base', '');
@@ -43,7 +45,7 @@ app.use(lessMiddleware(path.join(__dirname, 'less'), {
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
-app.use(logger('combined', {stream: accessLogStream}));
+// app.use(logger('combined', {stream: accessLogStream}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false

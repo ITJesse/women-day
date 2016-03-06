@@ -19,7 +19,10 @@ router.get('/', function(req, res, next) {
             if(req.query.url){
                 var url = req.query.url;
             }else{
-                var url = req.headers['referer'].replace(/\/$/, '');
+                var url = req.headers['referer'];
+            }
+            if(url){
+                url = url.replace(/\/$/, '');
             }
             console.log(url);
             var ret = sign(ticket, url);
