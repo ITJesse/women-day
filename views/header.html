@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="/css/onepage-scroll.css" />
-    <link rel="stylesheet" href="./css/main.css?ver=1" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/css/main.css?ver=2" media="screen" title="no title" charset="utf-8">
     <link rel="prefetch" href="/images/flower_1.png" />
     <link rel="prefetch" href="/images/flower_2.png" />
     <link rel="prefetch" href="/images/flower_3.png" />
@@ -81,13 +81,16 @@
             }
         });
     </script>
-    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-    <script src="/js/jquery-1.11.1.min.js"></script>
-    <script src="/js/jquery.onepage-scroll.js"></script>
-    <script>
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="https://o3nft1mh4.qnssl.com/js/jquery-1.11.1.min.js"></script>
+    <script src="https://o3nft1mh4.qnssl.com/js/jquery.onepage-scroll.js"></script>
+    <script type="text/javascript">
         $(document).on('ready', function() {
+            var url = encodeURIComponent(window.location.href.replace(/\/$/, ''));
+            $('body').append('<script src="/wechat?url=' + url + '"></" + "script>');
+
             $('#bgmusic_toggle').on('click', function() {
-                alert('test');
+                // alert('test');
                 if ($(this).hasClass('music-toggle_on')) {
                     $(this).removeClass('music-toggle_on');
                     $(this).addClass('music-toggle_off');
@@ -146,16 +149,16 @@
             });
             wx.onMenuShareTimeline({
                 title: '您收到了一份节日祝福',
-                link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx81d075add9f24883&redirect_uri=http%3a%2f%2fwww.xu1s.com&response_type=code&scope=snsapi_userinfo&state=ENTER#wechat_redirect',
-                imgUrl: "http://7xiqx7.com1.z0.glb.clouddn.com/head.jpg",
+                link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx81d075add9f24883&redirect_uri=https%3a%2f%2fwomensday.xu1s.com&response_type=code&scope=snsapi_userinfo&state=ENTER#wechat_redirect',
+                imgUrl: "https://dn-itjesse.qbox.me/head.jpg",
                 success: function() {},
                 cancel: function() {}
             });
             wx.onMenuShareAppMessage({
                 title: '您收到了一份节日祝福',
                 desc: "湖北省工会给您发送了一份妇女节的祝福",
-                link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx81d075add9f24883&redirect_uri=http%3a%2f%2fwww.xu1s.com&response_type=code&scope=snsapi_userinfo&state=ENTER#wechat_redirect',
-                imgUrl: "http://7xiqx7.com1.z0.glb.clouddn.com/head.jpg",
+                link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx81d075add9f24883&redirect_uri=https%3a%2f%2fwomensday.xu1s.com&response_type=code&scope=snsapi_userinfo&state=ENTER#wechat_redirect',
+                imgUrl: "https://dn-itjesse.qbox.me/head.jpg",
                 type: 'link',
                 dataUrl: '',
                 success: function() {},
@@ -167,5 +170,5 @@
 
 <body>
     <audio autoplay loop id="bgmusic">
-        <source src="http://7xiqx7.com1.z0.glb.clouddn.com/bgmusic.mp3?ver=1" type="audio/mpeg">
+        <source src="https://dn-itjesse.qbox.me/bgmusic.mp3?ver=1" type="audio/mpeg">
     </audio>

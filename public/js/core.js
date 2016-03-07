@@ -17,7 +17,7 @@ $(document).ready(function() {
         toContent;
 
     var url = encodeURIComponent(window.location.href.replace(/\/$/, ''));
-    $('body').append('<script src="/wechat?url=' + url + '"></script>');
+
     var code = $.urlParam('code');
     if (!code) {
         // alert(url);
@@ -88,23 +88,23 @@ $(document).ready(function() {
         switch (flowerId) {
             case 1:
                 flowerName = "百合";
-                flowerContent = "简单大方的百合，饱含对你最美好的祝福，愿心想事成，阖家欢乐。";
+                flowerContent = "简单大方的百合，饱含对你最美好的祝福，愿心想事成，阖家欢乐";
                 break;
             case 2:
                 flowerName = "康乃馨";
-                flowerContent = "朴实素雅的康乃馨，寄托着我对你最真诚的祝福和对伟大母爱的赞许。";
+                flowerContent = "朴实素雅的康乃馨，寄托着我对你最真诚的祝福和对伟大母爱的赞许";
                 break;
             case 3:
                 flowerName = "满天星";
-                flowerContent = "素雅可爱的满天星，寄寓了对你纯纯的关怀与仰慕，愿你永远十八岁。";
+                flowerContent = "素雅可爱的满天星，寄寓了对你纯纯的关怀与仰慕，愿你永远十八岁";
                 break;
             case 4:
                 flowerName = "玫瑰"
-                flowerContent = "浓烈纯真的玫瑰，是我对你最浪漫的祝福，愿世界待你温柔。";
+                flowerContent = "浓烈纯真的玫瑰，是我对你最浪漫的祝福，愿世界待你温柔";
                 break;
             case 5:
                 flowerName = "牡丹";
-                flowerContent = "浓郁丰满的牡丹，只为祝福你生活圆满，时光不老，融化延年。";
+                flowerContent = "浓郁丰满的牡丹，只为祝福你生活圆满，时光不老，融化延年";
                 break;
             case 6:
                 flowerName = "郁金香";
@@ -112,7 +112,7 @@ $(document).ready(function() {
                 break;
             default:
                 flowerName = "百合";
-                flowerContent = "简单大方的百合，饱含对你最美好的祝福，愿心想事成，阖家欢乐。";
+                flowerContent = "简单大方的百合，饱含对你最美好的祝福，愿心想事成，阖家欢乐";
                 break;
         }
         $('#flower_name').text(flowerName);
@@ -157,16 +157,16 @@ $(document).ready(function() {
                 }
                 wx.onMenuShareTimeline({
                     title: fromName + '给您发送了一份祝福',
-                    link: 'http://www.xu1s.com/show_card?cardId=' + data.cardId,
-                    imgUrl: fromImg ? fromImg : "http://7xiqx7.com1.z0.glb.clouddn.com/head.jpg",
+                    link: 'https://womensday.xu1s.com/show_card?cardId=' + data.cardId,
+                    imgUrl: fromImg ? fromImg : "https://o3nft1mh4.qnssl.com/head.jpg",
                     success: function() {},
                     cancel: function() {}
                 });
                 wx.onMenuShareAppMessage({
                     title: fromName + '给您发送了一份祝福',
                     desc: "您收到了一份妇女节的祝福",
-                    link: 'http://www.xu1s.com/show_card?cardId=' + data.cardId,
-                    imgUrl: fromImg ? fromImg : "http://7xiqx7.com1.z0.glb.clouddn.com/head.jpg",
+                    link: 'https://womensday.xu1s.com/show_card?cardId=' + data.cardId,
+                    imgUrl: fromImg ? fromImg : "https://o3nft1mh4.qnssl.com/head.jpg",
                     type: 'link',
                     dataUrl: '',
                     success: function() {},
