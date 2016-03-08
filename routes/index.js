@@ -71,9 +71,13 @@ router.get('/', function(req, res, next) {
                 })
             }
             // console.log(data);
+            var sendTime = new Date('2016-03-07 12:00');
+            // var now = new Date();
+            var now = new Date();
+            var fakeCount = Math.ceil((now - sendTime) / 1000 / 60) * 13;
             res.render('index', {
                 title: '您收到了一份节日祝福',
-                count: results.count * 2 + 1024,
+                count: results.count * 2 + fakeCount,
                 list: data
             });
         }
